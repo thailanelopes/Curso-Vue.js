@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vue.js - Primeiro Exemplo</title>
+	
+</head>
+
+<body>
+	<div id="start"> <!--conteiner principal, elemento html, onde a partir dele o elemento vueJs vai funcionar.-->
+		<h1>{{message}}</h1> <!--Padrão para exibir mensagem repassada.-->
+	<script src="vue.js"></script> //script do vue
+	<script>
+		let app = new Vue({           //nova istância da classe Vue, onde será repassado parâmetros. 
+			                         //let app= permite a alteração da mensagem diretamente no navegador em tempo real.
+
+			el: '#start'    //elemento onde ele será aplicado, nesse elemento terá um seletor CSS.
+
+			data: {         //data:{}, será repassado um objeto.
+			message: 'Hello VueJs'
+
+
+
+			},
+
+		})
+	</script>
+
+</div>
+	
+</body>
+
+</html>
