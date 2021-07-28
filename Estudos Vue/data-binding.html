@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+	<meta charset="pt-BR">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Passagem de dados</title>
+	
+</head>
+
+<body>
+
+	<div id="data_biding">
+		
+		<h1 v-bind:title="tagMessage">{{message}}</h1>
+
+		<h2>Essa mensagem em letras garrafais seria assim: {{message.toUpperCase()}}</h2><!--Usando um método JS para repassar a informação em letras garrafais(Maiúsculas)-->
+
+		<p>Meu nome é {{person.name}} e tenho {{person.age}} anos</p> <!--Acessando o objeto-->
+
+		<span v-html="tag"></span><!--Usando uma diretiva, para ser interpretado como html.-->
+
+	</div>
+
+	    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+
+	<script>
+	 let app = new Vue({
+	 	el: '#data_biding',
+	 	data: {
+	 		message: 'Meensagem para ser exibida'
+
+	 		person: {
+	 			name: 'Thailane',
+	 			age: 20
+	 		}, // passando a informação por meio de um objeto.
+
+	 		tag: '<button>Clique Aqui</button>'
+	 		tagMessage: 'Essa é uma tag de título'
+
+
+	 	}
+
+		})
+	</script>
+</body>
+
+</html>
