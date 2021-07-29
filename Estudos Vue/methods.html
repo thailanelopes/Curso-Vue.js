@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vue.js - Methods</title>
+	
+</head>
+
+<body>
+
+	<div id="methods">
+		
+		<h1>{{message}}</h1>
+
+		<input type="text" placeholder="Digite uma nova mensagem" v-on:blur="replaceMessage($event.target.value)"> <!--placeholder="" da a opção de digitar uma nova mensagem / v-on: define que: quando acontecer algo, um metódo definido será executado. / $event é uma variável padrão que contém o objeto do evento ou seja toda variável que a gente precisar sobre o evento, vão estar dentro dessa variável.-->
+
+
+	    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+
+	<script>
+	 let app = new Vue({
+	 	el: '#methods', //elemento onde ele será aplicado, nesse elemento terá um seletor CSS.
+	 	data: {
+	 		message: 'Meensagem para ser exibida'
+
+	 	},
+
+	 	methods:{ //A propriedade methods também espera um objeto.
+	 		reverseMessage: function(){    //método para inverter uma mensagem.
+
+	 			this.message = this.message.split('').reverse().join(''); // acessando as propriedades do data por meio do this. / this.message.split(''), esse comando faz com que a string eseja em posição de array / .reverse() vai inverter todas as posições. / .join('') junta tudo novamente como uma String.
+
+	 		},
+	 		replaceMessage(newMessage) //passando o parâmetro para receber uma nova mensagem.
+	 	}
+
+		})
+	</script>
+	
+
+</div>
+	
+</body>
+
+</html>
