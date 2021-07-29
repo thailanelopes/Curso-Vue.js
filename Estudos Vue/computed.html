@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vue.js - Computed</title>
+	
+</head>
+
+<body>
+
+	<div id="computed">
+
+		<h2>Nome: {{person.firstName}} {{person.lastName}}</h2> 
+
+		<h2>Nome Completo: {{fullName}}</h2> <!--acessando o computed-->
+		
+
+
+	    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+
+	<script>
+	 let app = new Vue({
+	 	el: '#computed', //elemento onde ele será aplicado, nesse elemento terá um seletor CSS.
+
+	 	data:{
+	 		person:{
+	 			firstName: 'Thailane',
+	 			lastName:'Lopes Dutra' 
+	 		}
+	 	},
+	 	computed: { //O computed também vai esperar um objeto, e colocaremos o nome da nossa nova propriedade.
+	 		fullName: function(){
+
+	 			return `${this.person.firstName} ${this.person.lastName}`; //usando um templete string para simpificar a linha / O ${} seleciona a variável que será usada.
+	 			
+
+	 		}
+
+	 	}
+
+		})
+	</script>
+	
+
+</div>
+	
+</body>
+
+</html>
