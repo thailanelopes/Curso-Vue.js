@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<!-- 1- Métodos realizam ações, eventos.
+     2- Computed properties manipulam dados.
+
+     3- Computed properties ficam em cache. Seus valores são armazenadoa como sendo uma nova propriedade da instância Vue, sendo requisitados apenas uma vez. -->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vue.js - Propriedades armazenadas - Definindo um valor</title>
+	
+</head>
+
+<body>
+
+	<div id="computed">
+
+		<h2>Nome: {{person.firstName}} {{person.lastName}}</h2> 
+
+		<h2>Nome Completo: {{fullName}}</h2> <!--acessando o computed-->
+		
+		
+
+
+	    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+
+	<script>
+	 let app = new Vue({
+	 	el: '#computed', //elemento onde ele será aplicado, nesse elemento terá um seletor CSS.
+
+	 	data:{
+	 		person:{
+	 			firstName: 'Thailane',
+	 			lastName:'Lopes Dutra' 
+	 		}
+	 	},
+
+	 	computed: { //O computed também vai esperar um objeto, e colocaremos o nome da nossa nova propriedade.
+	 		fullName: {
+	 			get: function(){ // Aqui o computed está recebendo um objeto, e não uma função.
+	 				return `${this.person.firstName} ${this.person.lastName}`;
+
+	 			},
+
+	 			set: function(newValue)){ //set espera um novo valor ser repassado.
+	 	              let name = newValue.split('');
+	 	              this.person.firstName = name[0];
+	 	              this.person.lastName =  name[1];
+
+	 			}
+	 		}
+	 	}
+
+		})
+	</script>
+	
+
+</div>
+	
+</body>
+
+</html>
