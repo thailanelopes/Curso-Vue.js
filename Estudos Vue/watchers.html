@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vue.js - Watchers</title>
+	
+</head>
+
+<body>
+
+	<div id="watchers">
+
+		<input type="text" v-model="country"> <!-- v-model- é muito usado principalmente em campos de formulários, podemos definir um valor de uma propriendade dentro da nossa input e ele já é alterado na instância vue. -->
+		
+	    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+
+	<script>
+	 let app = new Vue({
+	 	el: '#watchers', //elemento onde ele será aplicado, nesse elemento terá um seletor CSS.
+
+	 	data:{
+	 		  country:'Brasil'
+	 	},
+
+	 	watch: { //monitora a propriedade que definimos
+	 		country: function(newValue, oldValue){ //definindo uma função que retornará o novo valor. oldValue retornará um valor antigo que havia sido definido.
+
+	 		        console.log(newValue, oldValue); //visualizando o novo valor e visualizando antigo valor.
+	 		    }
+	 	}
+
+		})
+	</script>
+	
+
+</div>
+	
+</body>
+
+</html>
