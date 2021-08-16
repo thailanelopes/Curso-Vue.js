@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vue.js - Watchers</title>
+	
+</head>
+
+<body>
+
+	<div id="lifecycle">
+
+		<h1>Hello{{ name }}</h1>
+
+		<ul>
+			<li v-for="state in states">{{state.nome}}</li> <!--A diretiva V-for permite que se percorra um array e exiba dentro de uma tag específica, o valor de cada posição do array? usamos a variável (state) para passar cada uma das vezes na variável states-->
+		</ul>
+
+		
+	    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+
+	<script>
+	 let app = new Vue({
+	 	el: '#lifecycle', //elemento onde ele será aplicado, nesse elemento terá um seletor CSS.
+
+	 	data:{
+	 		name: 'Hcode Treinamentos'
+	 		states:[]
+	 		 
+	 	},
+	 	 beforeCreate(){              //Ele vai esperar aqui um método. Ele é chamado ante da criação da instância
+	 	 	conole.log('beforeCreate');
+	 	 }
+
+	 	 created(){  //chamado depois da criação da instância.
+	 	 	fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados') // Requisitando a api de fetch para requisitar dados do IBGE que nos trará todos os estados brasileiros.
+	 	 	.then(response => {
+
+	 	 		response.json().then(data =>{
+	 	 			this.states = data; //populando com o data
+
+
+	 	 		}) //chamando o método .json que vai transformar todos os dados em uma requisição json / .then(), é o retorno da promessa do .json
+
+	 	 	}) //descobrindo a resposta da requisição.
+	 	 	.catch(err => {
+	 	 		console.log(); //exibindo o erro.
+	 	 	}) //recuperando com o catch, caso ocorra possíveis erros.
+	 	 }
+
+	 	 beforeMount(){    // ele ainda não tem um HTML, ainda não foi montado e é chamado no momento.
+	 	 	conole.log('beforeMount');
+	 	 }
+
+	 	 mounted(){
+	 	 	conole.log('mounted');
+	 	 }
+
+	 	 beforeUpdate(){
+	 	 	conole.log('beforeUpdate');
+	 	 }
+
+	 	 beforeDestroy(){
+	 	 	conole.log('beforeDestroy');
+	 	 }
+
+	 	 destroyed(){  //destroi a instância do Vue. Ela também chama a o beforeDestroy, sendo possível então a adição de um outro valor.
+	 	 	conole.log('destroyed');
+	 	 }
+
+
+		})
+	 		}
+	</script>
+	
+
+</div>
+	
+</body>
+
+</html>
