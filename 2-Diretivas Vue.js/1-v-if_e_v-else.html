@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Diretivas v-if e v-else</title>
+	
+</head>
+
+<body>
+
+	<div id="directives">
+
+		<h1 v-if="show">Hcode Treinamentos</h1> <!--Definindo uma condição (v-if="show")-->
+
+		<h3 key="available" v-if="tickets >= 50">Há ingessos disponíveis</h3> <!--Os tickets envolvem um número, logo, ele sempre vai ser verdadeiro enquanto tiver um número maior que 0, quando chegar no 0 ele se tornará falso. / o atributo key="", é utilizado para identificar qual o atributo da Tag específica, visto que existem duas tags h3 -->
+
+		<h3 key="almost" v-else-if="tickets >= 1">Os ingressos estão acabando</h3> <!--v-else-if, fica no meio entre as duas condições v-if e v-else, exibe uma mensagem alternativa caso o v-if não seja atendido, e antes de ir diretamente para o v-else-->
+
+		<h3 key="empty" v-else>Os ingressos acabaram</h3> <!--Mostrando uma mensagem utilizando o v-else, caso a condição v-if não seja atendida-->
+
+     </div>
+
+
+	    <script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script> <!--adcionando o script de filtros-->
+
+	<script>
+	 let app = new Vue({
+	 	el: '#directives', //elemento onde ele será aplicado, nesse elemento terá um seletor CSS.
+
+	 	data:{
+	 		show: true, //define se devemos exibir ou não um elemento
+	 		tickets: 100
+		})
+
+	</script>
+	
+
+</div>
+	
+</body>
+
+</html>
